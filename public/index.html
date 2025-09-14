@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope Write Dream - CQMHV才倾梦华V个人主页</title>
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="Hope Write Dream - CQMHV Personal Homepage，才倾梦华V的个人主页，在这里展示了才倾梦华V的全部作品、项目和资源，欢迎访问和交流！">
+    <meta name="keywords" content="CQMHV,才倾梦华V,个人主页,Hope Write Dream,博客,Blog,项目,Projects,资源,Resources">
+    <meta name="author" content="CQMHV才倾梦华V">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1f1f1f" media="(prefers-color-scheme: dark)">
+
+    <link rel="alternate" hreflang="zh-cn" href="https://hopewritedream.com/">
+    <link rel="alternate" hreflang="en-us" href="https://hopewritedream.com/en-us">
+    <link rel="alternate" hreflang="zh-tw" href="https://hopewritedream.com/zh-tw">
+    <link rel="alternate" hreflang="ja-jp" href="https://hopewritedream.com/ja-jp">
+
+    <!-- 🔗 Open Graph（用于Facebook、Discord、QQ等） -->
+    <meta property="og:title" content="Hope Write Dream - CQMHV才倾梦华V个人主页">
+    <!-- 页面标题：分享链接时显示为大标题 -->
+    <meta property="og:description" content="Hope Write Dream - CQMHV才倾梦华V的个人主页，在这里展示了才倾梦华V的全部作品、项目和资源，欢迎访问和交流！">
+    <!-- 页面描述：在卡片中显示的简要介绍 -->
+    <meta property="og:image" content="https://hopewritedream.com/images/og-image.jpg">
+    <!-- 分享预览图：建议分辨率1200x630，必须为绝对地址 -->
+    <meta property="og:url" content="https://hopewritedream.com/">
+    <!-- 当前页面的完整链接地址 -->
+    <meta property="og:type" content="website">
+    <!-- 类型为网站主页，常用值还有 article、video 等 -->
+    <meta property="og:site_name" content="Hope Write Dream - CQMHV才倾梦华V Personal Homepage">
+    <!-- 网站名称：会显示在某些平台的分享卡片上 -->
+    <meta property="og:locale" content="zh_CN">
+    <!-- 页面语言区域设定 -->
+    <!-- 🐦 Twitter Cards（用于Twitter等平台） -->
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- 指定卡片类型为大图卡片（推荐） -->
+    <meta name="twitter:title" content="Hope Write Dream - CQMHV才倾梦华V个人主页">
+    <!-- Twitter 卡片标题 -->
+    <meta name="twitter:description" content="Hope Write Dream - CQMHV才倾梦华V的个人主页，在这里展示了才倾梦华V的全部作品、项目和资源，欢迎访问和交流！">
+    <!-- Twitter 卡片描述 -->
+    <meta name="twitter:image" content="https://hopewritedream.com/images/twitter-card.jpg">
+    <!-- Twitter 卡片预览图，推荐尺寸1200x600 -->
+    <meta name="twitter:image:alt" content="Hope Write Dream Logo">
+    <!-- 图片的替代文本，有助于SEO和无障碍支持 -->
+    <meta name="twitter:site" content="@cqmh_v">
+    <!-- 网站的Twitter账号（如无可留空或移除） -->
+    <meta name="twitter:creator" content="@cqmh_v">
+    <!-- 作者的Twitter账号（如无可留空或移除） -->
+
+    <!-- 图标|Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+    <!-- Android Chrome -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/icons/android-chrome-512x512.png">
+
+    <!-- PWA|manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <!-- mobile和PC兼容性优化 -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hope Write Dream">
+    <!-- Apple iOS 兼容性优化 -->
+    <link rel="apple-touch-icon" href="/PWAicons/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hope Write Dream">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* === 主题变量 === */
+        :root {
+            --bg: #ffffff;
+            --fg: #1f1f1f;
+
+            /* 云海（浅色） */
+            --cloud-c1: #addfff;
+            --cloud-c2: #bff2d9;
+            --cloud-c3: #d6ecff;
+            --cloud-opacity: 0.8;
+            --blur: 50px;
+
+            /* 玻璃态：更透明，轻毛玻璃 */
+            --glass-bg: color-mix(in oklab, var(--bg) 45%, transparent);
+            --glass-brd: color-mix(in oklab, var(--bg) 40%, #aaa 15%);
+            --glass-blur: 8px;
+            --shadow: 0 8px 20px rgba(0, 0, 0, .06), 0 2px 6px rgba(0, 0, 0, .04);
+            --radius: 20px;
+
+            --link: #0b5bd3;
+            --link-hover: #0849a8;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0b0f0c;
+                --fg: #e6e6e6;
+
+                /* 云海（深色，蓝主+增绿） */
+                --cloud-c1: #1a4b9a;
+                --cloud-c2: #1d6fb1;
+                --cloud-c3: #264d73;
+                --cloud-g1: #1c6f54;
+                --cloud-g2: #145c42;
+                --cloud-opacity: 0.78;
+                --blur: 56px;
+
+                /* 玻璃态：更透明，轻毛玻璃 */
+                --glass-bg: color-mix(in oklab, var(--bg) 35%, transparent);
+                --glass-brd: color-mix(in oklab, var(--bg) 50%, #aaa 12%);
+                --glass-blur: 8px;
+                --shadow: 0 10px 24px rgba(0, 0, 0, .18), 0 2px 8px rgba(0, 0, 0, .12);
+
+                --link: #7ab8ff;
+                --link-hover: #9bccff;
+            }
+        }
+
+        /* === 页面基础 === */
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        /* === 云海背景 === */
+        .clouds {
+            position: fixed;
+            inset: -10vmax;
+            pointer-events: none;
+            z-index: -1;
+            opacity: var(--cloud-opacity);
+            background:
+                radial-gradient(70vmax 40vmax at 12% 18%, var(--cloud-c1), transparent 65%),
+                radial-gradient(55vmax 35vmax at 85% 22%, var(--cloud-c2), transparent 60%),
+                radial-gradient(62vmax 36vmax at 42% 65%, var(--cloud-c1), transparent 65%),
+                radial-gradient(50vmax 30vmax at 72% 78%, var(--cloud-c2), transparent 62%),
+                radial-gradient(48vmax 28vmax at 30% 85%, var(--cloud-c3), transparent 64%),
+                radial-gradient(46vmax 26vmax at 60% 32%, var(--cloud-c3), transparent 62%);
+            --sat: 1.06;
+            --bri: 1.02;
+            filter: blur(var(--blur)) saturate(var(--sat)) brightness(var(--bri));
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .clouds {
+                background:
+                    radial-gradient(70vmax 40vmax at 12% 18%, var(--cloud-c1), transparent 65%),
+                    radial-gradient(62vmax 36vmax at 42% 65%, var(--cloud-c1), transparent 65%),
+                    radial-gradient(46vmax 26vmax at 60% 32%, var(--cloud-c3), transparent 62%),
+                    radial-gradient(58vmax 34vmax at 78% 24%, var(--cloud-g1), transparent 62%),
+                    radial-gradient(50vmax 30vmax at 68% 76%, var(--cloud-g1), transparent 62%),
+                    radial-gradient(44vmax 28vmax at 30% 82%, var(--cloud-g2), transparent 64%);
+            }
+        }
+
+        /* === 导航栏 === */
+        .nav-wrap {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1400px, 96vw);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .nav {
+            position: relative;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-brd);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 15px 24px;
+            pointer-events: auto;
+        }
+
+        /* 左侧 Logo，两行 */
+        .brand {
+            text-decoration: none;
+            color: var(--fg);
+            line-height: 1.2;
+            padding: 9px 15px;
+            border-radius: 14px;
+            border: 1px solid transparent;
+            transition: background .3s ease;
+        }
+
+        .brand:hover {
+            background: color-mix(in oklab, var(--bg) 50%, transparent);
+            border-color: color-mix(in oklab, var(--bg) 60%, #999 18%);
+        }
+
+        .brand-line1 {
+            display: block;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .brand-line2 {
+            display: block;
+            font-size: 14px;
+            opacity: .85;
+            margin-top: 2px;
+        }
+
+        /* 中央菜单 */
+        .menu {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+            height: 48px;
+            padding: 28px 36px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-size: 20px;
+            word-spacing: 0.4em;
+            color: var(--fg);
+            text-decoration: none;
+            background: var(--glass-bg);
+            transition: background .3s ease, border-color .3s ease, transform .2s ease;
+        }
+
+        .link:hover {
+            background: color-mix(in oklab, var(--bg) 40%, transparent);
+            border-color: color-mix(in oklab, var(--bg) 60%, #999 18%);
+        }
+
+        .link:active {
+            transform: translateY(1px);
+        }
+
+        .link.active {
+            color: var(--link);
+            background: color-mix(in oklab, var(--bg) 88%, transparent);
+            border-color: color-mix(in oklab, var(--bg) 58%, var(--link) 22%);
+        }
+
+        main {
+            padding: 150px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* === 通用卡片样式 === */
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-brd);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+
+            padding: 20px 24px;
+            margin: 20px auto;
+            max-width: 900px;
+
+            color: var(--fg);
+            transition: background .3s ease, border-color .3s ease, transform .2s ease;
+        }
+        .card:hover {
+            background: color-mix(in oklab, var(--bg) 50%, transparent);
+            border-color: color-mix(in oklab, var(--bg) 60%, #999 18%);
+            transform: translateY(-2px);
+        }
+        .card h2,.card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+        }
+        .card p {
+            margin: 0.5em 0;
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <!-- 云海背景 -->
+    <div class="clouds" aria-hidden="true"></div>
+
+    <!-- 导航栏 -->
+    <nav class="nav-wrap" aria-label="主导航">
+        <div class="nav">
+            <!-- 左侧 Logo -->
+            <a class="brand" href="/" aria-label="站点首页">
+                <span class="brand-line1">Hope Write Dream</span>
+                <span class="brand-line2">CQMHV才倾梦华V</span>
+            </a>
+
+            <!-- 中央菜单（居中） -->
+            <ul class="menu">
+                <li><a href="/" class="link" data-match="exact">首 页 | HOME</a></li>
+                <li><a href="/more" class="link" data-match="prefix">更 多 | MORE</a></li>
+            </ul>
+
+            <!-- 右侧 Logo -->
+            <img src="/images/logo-light.png" alt="Hope Write Dream Logo" style="width:75px;height:75px;margin-left:auto;border-radius:50%;opacity: 0.7;">
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="card">Welcome to Hope Write Dream</h1>
+    </main>
+
+
+    <!-- 自动高亮 -->
+    <script>
+        (function () {
+            "use strict";
+            function norm(p) {
+                if (!p) return "/"; if (p !== "/" && p.endsWith("/")) p = p.slice(0, -1);
+                if (p.endsWith("/index.html")) p = p.slice(0, -11) || "/"; return p || "/";
+            }
+            var cur = norm(location.pathname);
+            document.querySelectorAll(".menu .link").forEach(function (a) {
+                var href = new URL(a.getAttribute("href"), location.origin).pathname;
+                href = norm(href);
+                var m = (a.dataset.match || "exact").toLowerCase();
+                var active = (m === "exact") ? (cur === href) : (cur === href || cur.startsWith(href + "/"));
+                if (active) { a.classList.add("active"); a.setAttribute("aria-current", "page"); }
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
