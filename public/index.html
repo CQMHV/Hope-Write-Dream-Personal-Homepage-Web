@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hope Write Dream - CQMHV才倾梦华V个人主页</title>
     <meta name="color-scheme" content="light dark">
-    <meta name="description" content="Hope Write Dream - CQMHV Personal Homepage，才倾梦华V的个人主页，在这里展示了才倾梦华V的全部作品、项目和资源，欢迎访问和交流！">
+    <meta name="description"
+        content="Hope Write Dream - CQMHV Personal Homepage，才倾梦华V的个人主页，在这里展示了才倾梦华V的全部作品、项目和资源，欢迎访问和交流！">
     <meta name="keywords" content="CQMHV,才倾梦华V,个人主页,Hope Write Dream,博客,Blog,项目,Projects,资源,Resources">
     <meta name="author" content="CQMHV才倾梦华V">
     <meta name="robots" content="index, follow">
@@ -70,8 +71,57 @@
     <meta name="apple-mobile-web-app-title" content="Hope Write Dream">
 
     <style>
-        *, *::before, *::after {
+        * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
+            /* 去掉移动端的点击高亮（iOS/Android） */
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* 清除a的下划线和点击色 */
+        a {
+            text-decoration: none;
+            color: unset;
+        }
+        /* 鼠标悬停时显示手形光标 */
+        .clickable {
+            cursor: pointer;
+        }
+        /* 基础交互元素默认不显示边框outline */
+        a,
+        .clickable,
+        button,
+        input,
+        textarea,
+        select {
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+            background-clip: padding-box;
+        }
+        /* 亮色模式下的无障碍焦点边框outline样式 */
+        a:focus-visible,
+        .clickable:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible {
+            outline: 2px solid #2684FF;
+            /* Google 常用的蓝色 */
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        /* 深色模式下的无障碍焦点边框outline样式 */
+        @media (prefers-color-scheme: dark) {
+
+            a:focus-visible,
+            .clickable:focus-visible,
+            button:focus-visible,
+            input:focus-visible,
+            textarea:focus-visible,
+            select:focus-visible {
+                outline: 2px solid #8AB4F8;
+                /* Google Material 的浅蓝色 */
+            }
         }
 
         /* === 主题变量 === */
@@ -191,7 +241,7 @@
             pointer-events: auto;
         }
 
-        /* 左侧 Logo，两行 */
+        /* 左侧 文字Logo，两行 */
         .brand {
             text-decoration: none;
             color: var(--fg);
@@ -263,12 +313,43 @@
             border-color: color-mix(in oklab, var(--bg) 58%, var(--link) 22%);
         }
 
+        /* 右侧 图片Logo */
+        .nav img {
+            width:75px;
+            height:75px;
+            margin-left:auto;
+            border-radius:50%;
+            opacity: 0.7;
+        }
+        .dark-logo {
+            display:none;
+        }
+        @media (prefers-color-scheme: dark) {
+            .light-logo {
+                display:none;
+            }
+            .dark-logo {
+                display:inline-block;
+        }
+        }
+
         main {
-            padding: 150px 0;
+            padding-top: 175px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            width: 100%;
+        }
+
+        .card-grid {
+            width: 95%;
+            padding: 30px;
+            margin-top: 30px;
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            justify-items: center;
         }
 
         /* === 通用卡片样式 === */
@@ -277,32 +358,54 @@
             border: 1px solid var(--glass-brd);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-
+            text-align: center;
             backdrop-filter: blur(var(--glass-blur));
             -webkit-backdrop-filter: blur(var(--glass-blur));
 
             padding: 20px 24px;
-            margin: 20px auto;
             max-width: 900px;
 
             color: var(--fg);
-            transition: background .3s ease, border-color .3s ease, transform .2s ease;
+            transition: all 0.3s ease;
         }
+
         .card:hover {
             background: color-mix(in oklab, var(--bg) 50%, transparent);
             border-color: color-mix(in oklab, var(--bg) 60%, #999 18%);
             transform: translateY(-2px);
         }
-        .card h2,.card h3 {
+
+        .card h2,
+        .card h3 {
             margin-top: 0;
             margin-bottom: 0.5em;
             font-weight: 600;
         }
+
         .card p {
             margin: 0.5em 0;
             line-height: 1.6;
         }
 
+        /* 网格卡片样式 */
+        .card-grid .card {
+            border-radius: 40%;
+            margin: 40px 0;
+            height: 240px;
+            width: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-grid .card:hover {
+            border-radius: var(--radius);
+            margin: 0;
+            height: 320px;
+            width: 360px;
+            max-width: 100vw;
+        }
     </style>
 </head>
 
@@ -327,16 +430,31 @@
             </ul>
 
             <!-- 右侧 Logo -->
-            <img src="/images/logo-light.png" alt="Hope Write Dream Logo" style="width:75px;height:75px;margin-left:auto;border-radius:50%;opacity: 0.7;">
+            <img class="light-logo" src="/images/logo-light.png" alt="Hope Write Dream Logo">
+            <img class="dark-logo" src="/images/logo-dark.png" alt="Hope Write Dream Logo">
         </div>
     </nav>
 
     <main>
         <h1 class="card">Welcome to Hope Write Dream</h1>
+        <div class="card-grid">
+            <a class="card" href="#" aria-label="#">
+                <h2>关于本站</h2>
+                <p>Hope Write Dream</p>
+            </a>
+            <a class="card" href="#" aria-label="#">
+                <h2>最新动态</h2>
+                <p>本站正在建设中，更多内容即将上线</p>
+            </a>
+            <a class="card" href="#" aria-label="#">
+                <h2>联系我</h2>
+                <p>如果您有任何问题或建议，欢迎</p>
+            </a>
+        </div>
     </main>
 
 
-    <!-- 自动高亮 -->
+    <!-- 导航栏自动高亮 -->
     <script>
         (function () {
             "use strict";
