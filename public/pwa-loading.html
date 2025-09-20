@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Minecraft Share - Launching</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- 主题色 -->
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0f0c" media="(prefers-color-scheme: dark)" />
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --fg: #1f1f1f;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0b0f0c;
+                --fg: #e6e6e6;
+            }
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", Arial, sans-serif;
+        }
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .wrap {
+            width: 100vw;
+            max-width: 640px;
+            padding: 0 16px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .logo {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+            opacity: 0;
+            transition: opacity 600ms ease;
+        }
+        .logo.show { opacity: 1; }
+
+        .title-box {
+            margin-top: 16px;
+            position: relative;
+            padding-block: 2px;
+        }
+
+        .title-stage {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 1em;
+        }
+
+        .line {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.2;
+            font-size: clamp(18px, 5vw, 20px);
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 900ms ease, transform 900ms ease;
+            will-change: opacity, transform;
+            pointer-events: none;
+        }
+        .line.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .line.hide {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+
+        .error-message {
+            color: #e53935;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <img
+            src="/images/logo-light.png"
+            alt="App logo"
+            class="logo"
+            id="logo"
+        />
+
+        <div class="title-box" aria-live="polite">
+            <div class="title-stage" id="titleStage">
+                <h1 class="line" id="line1">Hope Write Dream</h1>
+                <h1 class="line" id="line2">CQMHV才倾梦华V</h1>
+            </div>
+        </div>
+
+        <div id="error-message" class="error-message">
+            You may be offline, please check your network connection.
+        </div>
+    </div>
+
+    <script src="/javascript/register-sw.js" defer></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            const logo  = document.getElementById('logo');
+            const l1    = document.getElementById('line1');
+            const l2    = document.getElementById('line2');
+
+            // —— logo 和第一行同步淡入 —— //
+            requestAnimationFrame(() => {
+                void logo.offsetWidth;
+                requestAnimationFrame(() => {
+                    logo.classList.add('show');
+                    l1.classList.add('show');  // 同时显示第一行
+
+                    // —— 第一行停留 1 秒后切换到第二行 —— //
+                    setTimeout(() => {
+                        l2.classList.add('show');
+                        l1.classList.remove('show');
+                        l1.classList.add('hide');
+                    }, 1500);
+                });
+            });
+        });
+
+        // —— SW 就绪与跳转/错误 —— //
+        window.addEventListener('load', () => {
+            let timeoutTriggered = false;
+            const timeout = setTimeout(() => {
+                timeoutTriggered = true;
+                document.getElementById('error-message').style.display = 'block';
+            }, 10000);
+
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.ready.then(() => {
+                    setTimeout(() => {
+                        if (!timeoutTriggered) {
+                            location.replace('/');
+                        }
+                    }, 3000);
+                }).catch((err) => {
+                    console.error('Service Worker 注册失败:', err);
+                    document.getElementById('error-message').style.display = 'block';
+                });
+            }
+
+            window.addEventListener('beforeunload', () => clearTimeout(timeout));
+        });
+    </script>
+</body>
+</html>
