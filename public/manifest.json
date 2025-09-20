@@ -1,0 +1,16 @@
+{
+  "name": "Hope Write Dream",
+  "short_name": "Hope Write Dream",
+  "id": "/pwa-loading?source=pwa",
+  "start_url": "/pwa-loading?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007a08",
+  "icons": [
+    { "src": "/PWAicons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/PWAicons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/PWAicons/maskable-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/PWAicons/maskable-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
