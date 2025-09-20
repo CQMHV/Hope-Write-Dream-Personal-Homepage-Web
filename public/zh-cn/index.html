@@ -51,14 +51,17 @@
     <!-- 作者的Twitter账号（如无可留空或移除） -->
 
     <!-- 图标|Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
-    <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
-    <!-- Android Chrome -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/images/icons/android-chrome-512x512.png">
+    <!-- 浅色图标 -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-light-16.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-light-32.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/icons/favicon-light-64.png" media="(prefers-color-scheme: light)">
+    <!-- 深色图标 -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-dark-16.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-dark-32.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/icons/favicon-dark-64.png" media="(prefers-color-scheme: dark)">
+    <!-- 高清图标|Favicon（PWA） -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/icons/icon-512.png">
 
     <!-- PWA|manifest -->
     <link rel="manifest" href="/manifest.json">
@@ -66,7 +69,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Hope Write Dream">
     <!-- Apple iOS 兼容性优化 -->
-    <link rel="apple-touch-icon" href="/PWAicons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Hope Write Dream">
 
@@ -112,6 +115,10 @@
             outline: 2px solid #2684FF;
             /* Google 常用的蓝色 */
             outline-offset: 2px;
+        }
+
+        p {
+            line-height: 1.6;
         }
 
         /* 深色模式下的无障碍焦点边框outline样式 */
@@ -387,18 +394,6 @@
             transform: translateY(-2px);
         }
 
-        .card h2,
-        .card h3 {
-            margin-top: 0;
-            margin-bottom: 0.5em;
-            font-weight: 600;
-        }
-
-        .card p {
-            margin: 0.5em 0;
-            line-height: 1.6;
-        }
-
         /* ===卡片网格卡片样式=== */
         .card-grid {
             width: 95%;
@@ -422,6 +417,10 @@
             align-items: center;
         }
 
+        .card-grid .card h2 {
+            margin: 6px 0;
+        }
+
         .card-grid .card p {
             display: none;
         }
@@ -437,6 +436,7 @@
 
         .card-grid .card:hover p {
             display: inline-block;
+            margin: 6px 0;
         }
 
         .card-grid .card:hover .btn {
@@ -449,6 +449,11 @@
         /* === 页脚 === */
         footer {
             margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
         .github-repository img {
@@ -489,8 +494,8 @@
             </ul>
 
             <!-- 右侧 Logo -->
-            <img class="light-logo" src="/images/logo-light.png" alt="Hope Write Dream Logo">
-            <img class="dark-logo" src="/images/logo-dark.png" alt="Hope Write Dream Logo">
+            <img class="light-logo" src="/images/hopewritedream-logo-light.png" alt="Hope Write Dream Logo">
+            <img class="dark-logo" src="/images/hopewritedream-logo-dark.png" alt="Hope Write Dream Logo">
         </div>
     </nav>
 
@@ -532,6 +537,7 @@
 
     <!-- 页脚 -->
     <footer class="card">
+        <a class="btn" href="/set-lang">语言选择</a>
         <p>&copy; 2025 Hope Write Dream - 保留所有权利。</p>
         <p>本站GitHub项目仓库地址：<a href="https://github.com/CQMHV/Hope-Write-Dream-Personal-Homepage-Web/"
                 class="github-repository" target="_blank" rel="noopener noreferrer"><img
