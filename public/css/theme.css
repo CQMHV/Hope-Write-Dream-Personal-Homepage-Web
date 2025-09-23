@@ -1,0 +1,103 @@
+/* 主题颜色和背景和通用卡片样式 */
+/* === 主题变量 === */
+:root {
+    --bg: #ffffff;
+    --fg: #1f1f1f;
+
+    /* 云海（浅色） */
+    --cloud-c1: #addfff;
+    --cloud-c2: #bff2d9;
+    --cloud-c3: #d6ecff;
+    --cloud-opacity: 0.8;
+    --blur: 50px;
+
+    /* 玻璃态：更透明，轻毛玻璃 */
+    --glass-bg: color-mix(in oklab, var(--bg) 45%, transparent);
+    --glass-brd: color-mix(in oklab, var(--bg) 40%, #aaa 15%);
+    --glass-blur: 8px;
+    --shadow: 0 8px 20px rgba(0, 0, 0, .06), 0 2px 6px rgba(0, 0, 0, .04);
+    --radius: 20px;
+
+    --link: #0b5bd3;
+    --link-hover: #0849a8;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0b0f0c;
+        --fg: #e6e6e6;
+
+        /* 云海（深色，蓝主+增绿） */
+        --cloud-c1: #1a4b9a;
+        --cloud-c2: #1d6fb1;
+        --cloud-c3: #264d73;
+        --cloud-g1: #1c6f54;
+        --cloud-g2: #145c42;
+        --cloud-opacity: 0.78;
+        --blur: 56px;
+
+        /* 玻璃态：更透明，轻毛玻璃 */
+        --glass-bg: color-mix(in oklab, var(--bg) 35%, transparent);
+        --glass-brd: color-mix(in oklab, var(--bg) 50%, #aaa 12%);
+        --glass-blur: 8px;
+        --shadow: 0 10px 24px rgba(0, 0, 0, .18), 0 2px 8px rgba(0, 0, 0, .12);
+
+        --link: #7ab8ff;
+        --link-hover: #9bccff;
+    }
+}
+
+/* === 云海背景 === */
+.clouds {
+    position: fixed;
+    inset: -10vmax;
+    pointer-events: none;
+    z-index: -1;
+    opacity: var(--cloud-opacity);
+    background:
+        radial-gradient(70vmax 40vmax at 12% 18%, var(--cloud-c1), transparent 65%),
+        radial-gradient(55vmax 35vmax at 85% 22%, var(--cloud-c2), transparent 60%),
+        radial-gradient(62vmax 36vmax at 42% 65%, var(--cloud-c1), transparent 65%),
+        radial-gradient(50vmax 30vmax at 72% 78%, var(--cloud-c2), transparent 62%),
+        radial-gradient(48vmax 28vmax at 30% 85%, var(--cloud-c3), transparent 64%),
+        radial-gradient(46vmax 26vmax at 60% 32%, var(--cloud-c3), transparent 62%);
+    --sat: 1.06;
+    --bri: 1.02;
+    filter: blur(var(--blur)) saturate(var(--sat)) brightness(var(--bri));
+}
+
+@media (prefers-color-scheme: dark) {
+    .clouds {
+        background:
+            radial-gradient(70vmax 40vmax at 12% 18%, var(--cloud-c1), transparent 65%),
+            radial-gradient(62vmax 36vmax at 42% 65%, var(--cloud-c1), transparent 65%),
+            radial-gradient(46vmax 26vmax at 60% 32%, var(--cloud-c3), transparent 62%),
+            radial-gradient(58vmax 34vmax at 78% 24%, var(--cloud-g1), transparent 62%),
+            radial-gradient(50vmax 30vmax at 68% 76%, var(--cloud-g1), transparent 62%),
+            radial-gradient(44vmax 28vmax at 30% 82%, var(--cloud-g2), transparent 64%);
+    }
+}
+
+/* === 通用卡片样式 === */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-brd);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    color: var(--fg);
+    padding: 18px 24px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background: color-mix(in oklab, var(--bg) 50%, transparent);
+    border-color: color-mix(in oklab, var(--bg) 60%, #999 18%);
+    transform: translateY(-2px);
+}

@@ -1,0 +1,60 @@
+/* 社交媒体按钮样式 */
+.social-grid {
+    display: flex;
+    flex-wrap: wrap;              /* 自动换行 */
+    justify-content: center;      /* 按钮组居中对齐 */
+    gap: 12px;
+}
+.social-btn {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    transition: filter 0.3s;
+}
+.social-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-bottom: 6px;
+    transition: transform 0.3s;
+}
+.social-btn span {
+    font-size: 13px;
+    text-align: center;
+}
+.social-btn .img{
+    font-size: 21px;
+    margin-bottom: 6px;
+    transition: transform 0.3s;
+}
+
+/* 品牌背景色 */
+.social-btn.github  { background-color: #181717; }
+.social-btn.youtube { background-color: #FF0000; }
+.social-btn.x       { background-color: #000000; }
+.social-btn.twitch  { background-color: #9146FF; }
+.social-btn.discord { background-color: #5865F2; }
+.social-btn.reddit  { background-color: #FF4500; }
+.social-btn.bilibili{ background-color: #FA7299; }
+.social-btn.website { background-color: #007ACC; }
+
+/* 悬浮效果 */
+.social-btn:hover {
+    filter: brightness(1.2);        /* 整体亮一点 */
+}
+.social-btn:hover img,.social-btn:hover .img {
+    transform: scale(1.1);         /* 图标稍微放大 */
+}
+
+/* 单独为Billbill图标适配 */
+.social-btn.bilibili img {
+    width: 26px;
+    height: 26px;
+}
