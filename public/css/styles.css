@@ -84,6 +84,9 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: main-fade-in 0.8s ease-out forwards;
 }
 section {
     width: 100%;
@@ -93,6 +96,18 @@ section {
     gap: 20px;
     /* 锚点定位时，预留导航栏高度 */
     scroll-margin-top: 125px;
+}
+
+@keyframes main-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 按钮样式 */
