@@ -5,6 +5,7 @@
     /* 去掉移动端的点击高亮（iOS/Android） */
     -webkit-tap-highlight-color: transparent;
 }
+
 /* 全局平滑滚动 */
 html {
     scroll-behavior: smooth;
@@ -44,12 +45,16 @@ select:focus-visible {
     /* Google 常用的蓝色 */
     outline-offset: 2px;
 }
-h2,h3 {
+
+h2,
+h3 {
     line-height: 1.4;
 }
+
 p {
     line-height: 1.6;
 }
+
 span.emoji {
     font-size: 1.3em;
     vertical-align: middle;
@@ -78,6 +83,7 @@ body {
     color: var(--fg);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
 main {
     padding: 25px 15px;
     display: flex;
@@ -88,6 +94,7 @@ main {
     transform: translateY(20px);
     animation: main-fade-in 0.8s ease-out forwards;
 }
+
 section {
     width: 100%;
     display: flex;
@@ -136,7 +143,7 @@ button:hover,
     top: 12px;
     left: 50%;
     transform: translateX(-50%);
-    width: min(1400px, 96vw);
+    width: 96vw;
     z-index: 10;
     pointer-events: none;
 }
@@ -307,16 +314,19 @@ section div.card {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .card-flex .card {
     padding: 24px 18px;
     height: 210px;
     width: 310px;
     justify-content: flex-start;
 }
+
 .card-flex .btn {
     position: absolute;
     bottom: 24px;
 }
+
 /* ===卡片横向滚动flex网格卡片（悬停缩放卡片）样式=== */
 .card-flex-grid {
     width: 88%;
@@ -326,26 +336,34 @@ section div.card {
     flex-wrap: nowrap;
     overflow-x: auto;
     /* 隐藏默认滚动条 */
-    scrollbar-width: none;       /* Firefox */
-    -ms-overflow-style: none;    /* IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
     -webkit-overflow-scrolling: touch;
 }
+
 /* 隐藏默认滚动条 */
 .card-flex-grid::-webkit-scrollbar {
-    display: none;               /* Chrome/Safari */
+    display: none;
+    /* Chrome/Safari */
 }
+
 .card-flex-grid .card {
     padding: 30px 18px;
     border-radius: 80px;
     margin: 28px 0;
     height: 180px;
     width: 220px;
-    flex: 0 0 auto; /* 防止卡片缩小 */
+    flex: 0 0 auto;
+    /* 防止卡片缩小 */
     justify-content: center;
 }
+
 .card-flex-grid .card p {
     display: none;
 }
+
 .card-flex-grid .card:hover {
     border-radius: var(--radius);
     margin: 8px 0;
@@ -389,4 +407,19 @@ footer.card {
 .github-repository:hover {
     filter: brightness(1.8);
     /* 整体亮一些 */
+}
+
+/* 用户系统设置了“减少动画/动效”时禁用 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* 让 main 在禁用动画时直接显示最终状态 */
+    main {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
