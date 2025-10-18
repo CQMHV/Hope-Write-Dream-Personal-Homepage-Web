@@ -11,7 +11,7 @@
 
     <!-- 主题色 -->
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">  
-    <meta name="theme-color" content="#0b0f0c" media="(prefers-color-scheme: dark)">  
+    <meta name="theme-color" content="#1f1f1f" media="(prefers-color-scheme: dark)">  
 
     <style>
         :root {
@@ -165,7 +165,7 @@
                         if (!timeoutTriggered) {
                             location.replace('/');
                         }
-                    }, 3000);
+                    }, 2800);
                 }).catch((err) => {
                     console.error('Service Worker 注册失败:', err);
                     document.getElementById('error-message').style.display = 'block';
